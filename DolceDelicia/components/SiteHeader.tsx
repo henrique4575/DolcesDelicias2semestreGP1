@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { navLinks } from "../data/site";
 import { createWhatsAppUrl } from "../lib/whatsapp";
 
@@ -25,10 +24,10 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="nav-shell">
-        <Link className="brand" href="/" aria-label="Dolce Delícia — página inicial">
+        <a className="brand" href="/" aria-label="Dolce Delícia — página inicial">
           <img src="/images/logo.png" width="66" height="66" alt="" />
           <span><strong>Dolce</strong><small>Delícia</small></span>
-        </Link>
+        </a>
         <button
           className="menu-toggle"
           type="button"
@@ -45,7 +44,7 @@ export function SiteHeader() {
               const current = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return (
                 <li key={link.href}>
-                  <Link href={link.href} aria-current={current ? "page" : undefined} onClick={() => setIsOpen(false)}>{link.label}</Link>
+                  <a href={link.href} aria-current={current ? "page" : undefined} onClick={() => setIsOpen(false)}>{link.label}</a>
                 </li>
               );
             })}

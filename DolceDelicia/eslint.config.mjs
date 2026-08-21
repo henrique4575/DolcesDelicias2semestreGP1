@@ -26,6 +26,8 @@ const eslintConfig = defineConfig([
     rules: {
       // Sites serves these project-owned assets directly from the Worker bundle.
       "@next/next/no-img-element": "off",
+      // Native anchors intentionally bypass client routing in the Sites runtime.
+      "@next/next/no-html-link-for-pages": "off",
     },
     languageOptions: {
       globals: {

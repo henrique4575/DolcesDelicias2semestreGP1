@@ -11,3 +11,13 @@ export function getDb() {
 
   return drizzle(env.DB, { schema });
 }
+
+export function getD1(): D1Database {
+  if (!env.DB) throw new Error("Cloudflare D1 binding `DB` is unavailable.");
+  return env.DB;
+}
+
+export function getR2(): R2Bucket {
+  if (!env.MEDIA) throw new Error("Cloudflare R2 binding `MEDIA` is unavailable.");
+  return env.MEDIA;
+}
